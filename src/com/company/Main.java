@@ -46,6 +46,7 @@ public class Main  implements ActionListener {
         window.setVisible(true);
         Breset.addActionListener(this);
         Binfo.addActionListener(this);
+        Bpay.addActionListener(this);
 
     }
     private void createWindow(){
@@ -66,28 +67,28 @@ public class Main  implements ActionListener {
 
 
         Bitem=new JButton("Alma");
-        Jitem=new JTextField();
+        Jitem=new JTextField("0");
         JitemDB=new JLabel("30");
         Jitem.setBounds(150,77,100,50);
         Bitem.setBounds(30,77,100,50);
         JitemDB.setBounds(300,77,100,50);
 
         Bitem2=new JButton("Ropi");
-        Jitem2=new JTextField();
+        Jitem2=new JTextField("0");
         Jitem2DB=new JLabel("30");
         Jitem2.setBounds(150,135,100,50);
         Bitem2.setBounds(30,135,100,50);
         Jitem2DB.setBounds(300,135,100,50);
 
         Bitem3=new JButton("Csoki");
-        Jitem3=new JTextField();
+        Jitem3=new JTextField("0");
         Jitem3DB=new JLabel("30");
        Jitem3.setBounds(150,190,100,50);
         Bitem3.setBounds(30,190,100,50);
         Jitem3DB.setBounds(300,190,100,50);
 
         Bitem4=new JButton("Sütik");
-        Jitem4=new JTextField();
+        Jitem4=new JTextField("0");
         Jitem4DB=new JLabel("30");
         Jitem4.setBounds(150,245,100,50);
         Bitem4.setBounds(30,245,100,50);
@@ -101,7 +102,7 @@ public class Main  implements ActionListener {
 
         if(e.getSource().equals(Breset))
         {
-            Jcash.setText("30");
+            Jcash.setText("1000");
             JitemDB.setText("30");
             Jitem2DB.setText("30");
             Jitem3DB.setText("30");
@@ -109,7 +110,45 @@ public class Main  implements ActionListener {
         }
         if(e.getSource().equals(Binfo))
         {
-            JOptionPane.showMessageDialog(null,"Minden termék az egyszerüség kedvéért 100Ft ba kerül \n A sütin 2 őt fizet 3 mat kap akció van!");
+            JOptionPane.showMessageDialog(null,"Minden termék az egyszerüség kedvéért 100Ft ba kerül \n A sütin 2 őt fizet 3 mat kap akció van!\n");
+        }
+        if(e.getSource().equals(Bpay))
+        {
+            int item=Integer.parseInt(Jitem.getText());
+            int itemDB=Integer.parseInt(JitemDB.getText());
+            int item2=Integer.parseInt(Jitem2.getText());
+            int item2DB=Integer.parseInt(Jitem2DB.getText());
+            int item3=Integer.parseInt(Jitem3.getText());
+            int item3DB=Integer.parseInt(Jitem3DB.getText());
+            int item4=Integer.parseInt(Jitem4.getText());
+            int item4DB=Integer.parseInt(Jitem4DB.getText());
+            int penz=Integer.parseInt(Jcash.getText());
+            int akcio=0;
+            if(item4%3==0)
+            { akcio=item4*100-((item4/3)*100);}
+            else if (item4%3<0.5)
+            { akcio=(item4/3*100)+100; }
+            else{ akcio=(item4/3*100)+200; }
+
+            int osszeg =(item+item2+item3+akcio);
+
+            if((item >Integer.parseInt(JitemDB.getText()) || item2 >Integer.parseInt(Jitem2DB.getText())||
+                    item3 >Integer.parseInt(Jitem3DB.getText()) || item4 >Integer.parseInt(Jitem4DB.getText())))
+            {
+                JOptionPane.showMessageDialog(null,"Nem lehet több terméket venni mint amennyi raktáron van");
+            }
+            else if(penz<osszeg)
+            {
+                JOptionPane.showMessageDialog(null,"Nem vásárolhatsz többért mint amennyi pénzed van");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null,"Sikeresen fizettél: "+osszeg+"Ft ot!");
+                JitemDB.setText(String.valueOf((itemDB-item)));
+                Jitem2DB.setText(String.valueOf((item2DB-item2)));
+                Jitem3DB.setText(String.valueOf((item3DB-item3)));
+                Jitem4DB.setText(String.valueOf((item4DB-item4)));
+            }
         }
     }
 }
