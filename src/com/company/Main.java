@@ -68,28 +68,28 @@ public class Main  implements ActionListener {
 
         Bitem=new JButton("Alma");
         Jitem=new JTextField("0");
-        JitemDB=new JLabel("30");
+        JitemDB=new JLabel("30 DB");
         Jitem.setBounds(150,77,100,50);
         Bitem.setBounds(30,77,100,50);
         JitemDB.setBounds(300,77,100,50);
 
         Bitem2=new JButton("Ropi");
         Jitem2=new JTextField("0");
-        Jitem2DB=new JLabel("30");
+        Jitem2DB=new JLabel("30 DB");
         Jitem2.setBounds(150,135,100,50);
         Bitem2.setBounds(30,135,100,50);
         Jitem2DB.setBounds(300,135,100,50);
 
         Bitem3=new JButton("Csoki");
         Jitem3=new JTextField("0");
-        Jitem3DB=new JLabel("30");
+        Jitem3DB=new JLabel("30 DB");
        Jitem3.setBounds(150,190,100,50);
         Bitem3.setBounds(30,190,100,50);
         Jitem3DB.setBounds(300,190,100,50);
 
         Bitem4=new JButton("Sütik");
         Jitem4=new JTextField("0");
-        Jitem4DB=new JLabel("30");
+        Jitem4DB=new JLabel("30 DB");
         Jitem4.setBounds(150,245,100,50);
         Bitem4.setBounds(30,245,100,50);
         Jitem4DB.setBounds(300,245,100,50);
@@ -102,15 +102,15 @@ public class Main  implements ActionListener {
 
         if(e.getSource().equals(Breset))
         {
-            Jcash.setText("1000");
-            JitemDB.setText("30");
-            Jitem2DB.setText("30");
-            Jitem3DB.setText("30");
-            Jitem4DB.setText("30");
+            Jcash.setText("1000 Ft");
+            JitemDB.setText("30 DB");
+            Jitem2DB.setText("30 DB");
+            Jitem3DB.setText("30 DB");
+            Jitem4DB.setText("30 DB");
         }
         if(e.getSource().equals(Binfo))
         {
-            JOptionPane.showMessageDialog(null,"Minden termék az egyszerüség kedvéért 100Ft ba kerül \n A sütin 2 őt fizet 3 mat kap akció van!\n");
+            JOptionPane.showMessageDialog(null,"Minden termék az egyszerüség kedvéért 100Ft ba kerül \n A textfieldek melletti labelben a raktárkészlet látható\n A sütin 2 őt fizet 3 mat kap akció van!\n");
         }
         if(e.getSource().equals(Bpay))
         {
