@@ -44,6 +44,8 @@ public class Main  implements ActionListener {
 
         window.add(panel);
         window.setVisible(true);
+        Breset.addActionListener(this);
+        Binfo.addActionListener(this);
 
     }
     private void createWindow(){
@@ -97,5 +99,17 @@ public class Main  implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if(e.getSource().equals(Breset))
+        {
+            Jcash.setText("30");
+            JitemDB.setText("30");
+            Jitem2DB.setText("30");
+            Jitem3DB.setText("30");
+            Jitem4DB.setText("30");
+        }
+        if(e.getSource().equals(Binfo))
+        {
+            JOptionPane.showMessageDialog(null,"Minden termék az egyszerüség kedvéért 100Ft ba kerül \n A sütin 2 őt fizet 3 mat kap akció van!");
+        }
     }
 }
